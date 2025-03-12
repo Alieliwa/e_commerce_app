@@ -26,8 +26,10 @@ class SignUpCubit extends Cubit<SignUpState> {
           "password" : password,
           "phone" : phone,
         }).then((value){
-          emit(SignUpSucsses(value.data["message"],
-              value.data["status"]));
+          emit(SignUpSucsses(
+              value.data["message"],
+              value.data["status"],
+          ),);
           print("SignUp ${value.data}");
     }).catchError((error){
       print("SignUp error ${error.toString()}");

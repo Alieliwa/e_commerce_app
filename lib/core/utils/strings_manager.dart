@@ -22,4 +22,6 @@ class StringsManager{
   static final String getStartedText = "Get Started";
   static final String nameText = "Name";
   static final String phoneText = "Phone";
+  static final String welcomeAhmedText = "Welcome Ahmed";
+  static final String subTitleText = "Let’s start our shoping";
 }

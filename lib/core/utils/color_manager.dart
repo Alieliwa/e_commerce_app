@@ -12,6 +12,7 @@ class ColorManager
  static  Color  goldColor = const Color(0xffCB9200);
  static Color  blueColor = const Color(0xff3771C8);
  static Color  oilColor = const Color(0xff293E33);
+ static Color  searchColor = const Color(0xffF3F3F3);
  static Color blackColor =  Colors.black;
  static Color whiteColor =  Colors.white;
 

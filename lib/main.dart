@@ -1,6 +1,7 @@
 import 'package:ecomerce/core/shared/network/dio_helper.dart';
 import 'package:ecomerce/core/utils/color_manager.dart';
 import 'package:ecomerce/views/screens/aut_screens/screens/log_in_screen.dart';
+import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
 import 'package:ecomerce/views/screens/on_boarding_screens/on_boarding_screen.dart';
 import 'package:ecomerce/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // fontFamily: "VarelaRound",
         scaffoldBackgroundColor: ColorManager.whiteColor
       ),
-      home:  LogInScreen(),
+      home:  HomeLayout(),
     );
   }
 }
