@@ -93,9 +93,13 @@ class SignupScreenView extends StatelessWidget {
                   hintText: 'ex: ***********************',
                   labelText: StringsManager.passwordText,
                   controller: passController,
-                  obscureText: obscureText,
-                  suffixIcon:Icon(Icons.visibility_off,
-                    color: ColorManager.primaryColor,) ,
+                  obscureText: SignUpCubit.get(context).secirty,
+                  suffixIcon:IconButton(
+                    onPressed: (){
+                      SignUpCubit.get(context).changePasswordVisibilityForSignUp();
+                    },
+                    icon: Icon(SignUpCubit.get(context).suffix),
+                  ) ,
                   icon: Icon(Icons.lock_outline,
                     color: ColorManager.primaryColor,),
                 ),

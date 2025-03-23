@@ -7,6 +7,7 @@ import 'package:ecomerce/core/utils/color_manager.dart';
 import 'package:ecomerce/core/utils/responsive_text.dart';
 import 'package:ecomerce/core/utils/strings_manager.dart';
 import 'package:ecomerce/cubit/auth_cubit/log_in_cubit/log_in_cubit.dart';
+import 'package:ecomerce/cubit/category_cubit/category_cubit.dart';
 import 'package:ecomerce/views/screens/aut_screens/widgets/do_not_have_acc.dart';
 import 'package:ecomerce/views/screens/aut_screens/widgets/remember_forgetpass.dart';
 import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
@@ -79,10 +80,14 @@ class LoginScreenView extends StatelessWidget {
               CustomLableFormFaildText(
                 hintText: 'ex: ***********************',
                 labelText: StringsManager.passwordText,
-                obscureText: obscureText,
+                obscureText: LogInCubit.get(context).secirty,
                 controller: passController,
-                suffixIcon:Icon(Icons.visibility_off,
-                  color: ColorManager.primaryColor,) ,
+                suffixIcon: IconButton(
+                    onPressed: (){
+                      LogInCubit.get(context).changePasswordVisibility();
+                    },
+                    icon: Icon(LogInCubit.get(context).suffix),
+                ),
                 icon: Icon(
                   Icons.lock_outline,
                   color: ColorManager.primaryColor,
@@ -98,6 +103,8 @@ class LoginScreenView extends StatelessWidget {
                     logIn(email: emailController.text,
                         password: passController.text
                     );
+
+
               },
                   buttonText: StringsManager.logInText),
               DoNotHaveAccWidget(),

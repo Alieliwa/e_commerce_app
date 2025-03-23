@@ -14,3 +14,5 @@ final class LogInError extends LogInState {
   String? error;
   LogInError(this.error);
 }
+
+final class ChangePasswordVisibilityStates extends LogInState{}

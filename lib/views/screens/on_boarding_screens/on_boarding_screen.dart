@@ -1,5 +1,6 @@
 import 'package:ecomerce/core/utils/assets_manager.dart';
 import 'package:ecomerce/core/utils/strings_manager.dart';
+import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
 import 'package:ecomerce/views/screens/on_boarding_screens/widgets/on_boarding_wiget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 subTitle:  StringsManager.onBoardingSubTitleOneText,
                 activeIndex: indexPage,
                 onTapPrevious: () {  },
+                onTapSkip:  () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context)=>HomeLayout()));
+                },
                 onTapNext: () {
                   setState(() {
                     _controller!.animateToPage(
@@ -57,6 +62,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       curve: Curves.linear
                   );
                 },
+                onTapSkip: (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context)=>HomeLayout()));
+                },
                 onTapNext: () {
                   setState(() {
                     _controller!.animateToPage(
@@ -71,6 +80,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 image: AssetsManager.onBoardingThreeImage,
                 title: StringsManager.onBoardingTitleThreeText,
                 activeIndex: indexPage,
+                onTapNext: (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context)=>HomeLayout()));
+                },
                 subTitle:  StringsManager.onBoardingSubTitleThreeText,
               ),
             ],

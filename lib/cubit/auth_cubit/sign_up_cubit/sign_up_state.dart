@@ -14,3 +14,5 @@ final class SignUpError extends SignUpState {
   String? error;
   SignUpError(this.error);
 }
+
+final class ChangePasswordVisibilityForSignUpStates extends SignUpState {}

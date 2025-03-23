@@ -18,7 +18,7 @@ class CustomLableFormFaildText extends StatelessWidget {
   String? hintText;
   String? labelText;
   Icon? icon;
-  Icon? suffixIcon;
+  IconButton? suffixIcon;
    bool? obscureText;
    TextEditingController? controller;
 

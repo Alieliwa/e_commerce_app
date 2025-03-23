@@ -1,8 +1,10 @@
-import 'package:bloc/bloc.dart';
 import 'package:ecomerce/core/shared/network/dio_helper.dart';
 import 'package:ecomerce/core/shared/network/end_point.dart';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+
 
 part 'log_in_state.dart';
 
@@ -14,7 +16,8 @@ class LogInCubit extends Cubit<LogInState> {
   void logIn({
     required String? email,
     required  String? password,
-  }){
+  })
+  {
     emit(LogInLoading());
     DioHelper.postData(
         url: login,
@@ -26,11 +29,24 @@ class LogInCubit extends Cubit<LogInState> {
         value.data["status"],
         value.data["message"],
       ),);
-      print("LogIn ${value.data}");
+      if (kDebugMode) {
+        print("LogIn ${value.data}");
+      }
     }).catchError((error){
-      print("LogIn error ${error.toString()}");
+      if (kDebugMode) {
+        print("LogIn error ${error.toString()}");
+      }
       emit(LogInError(error.toString()));
     });
+  }
+
+
+  IconData suffix = Icons.visibility;
+  bool secirty = true;
+  void changePasswordVisibility(){
+    secirty = !secirty;
+    suffix = secirty ? Icons.visibility : Icons.visibility_off;
+    emit(ChangePasswordVisibilityStates());
   }
 
 

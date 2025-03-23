@@ -17,6 +17,7 @@ class OnBoardingWidget extends StatelessWidget {
     required this.activeIndex,
      this.onTapPrevious,
      this.onTapNext,
+     this.onTapSkip,
   });
 
   String? image;
@@ -25,6 +26,7 @@ class OnBoardingWidget extends StatelessWidget {
   int? activeIndex;
    void Function()? onTapPrevious;
    void Function()? onTapNext;
+   void Function()? onTapSkip;
 
 
    @override
@@ -38,14 +40,17 @@ class OnBoardingWidget extends StatelessWidget {
           SizedBox(
             height: Constans.getSize(context).height *.06,
           ),
-          activeIndex== 2? Container() : Align(
-            alignment: Alignment.topRight,
-            child: Text(
-              StringsManager.skipText,
-              style: TextStyle(
-                  color: ColorManager.grayColor,
-                  fontSize: getResponsiveFontSize(context, fontSize: 18 ),
-                  fontWeight: FontWeight.w600
+          activeIndex== 2? Container() : GestureDetector(
+            onTap:onTapSkip ,
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Text(
+                StringsManager.skipText,
+                style: TextStyle(
+                    color: ColorManager.grayColor,
+                    fontSize: getResponsiveFontSize(context, fontSize: 18 ),
+                    fontWeight: FontWeight.w600
+                ),
               ),
             ),
           ),

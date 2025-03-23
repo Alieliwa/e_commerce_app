@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:ecomerce/core/shared/network/dio_helper.dart';
 import 'package:ecomerce/core/shared/network/end_point.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -36,6 +37,16 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpError(error.toString()));
     });
   }
+
+
+  IconData suffix = Icons.visibility;
+  bool secirty = true;
+  void changePasswordVisibilityForSignUp(){
+    secirty = !secirty;
+    suffix = secirty ? Icons.visibility : Icons.visibility_off;
+    emit(ChangePasswordVisibilityForSignUpStates());
+  }
+
 
 
 }
