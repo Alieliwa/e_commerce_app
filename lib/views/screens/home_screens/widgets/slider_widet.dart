@@ -19,11 +19,13 @@ class _SliderWidgetState extends State<SliderWidget> {
     AssetsManager.sliderImage,
     AssetsManager.sliderImage,
   ];
+  bool autoPlay = true;
+
 
   int _currentIndex = 0;
   @override
   void dispose() {
-    // TODO: implement dispose
+    autoPlay = false;
     super.dispose();
   }
 
@@ -44,7 +46,7 @@ class _SliderWidgetState extends State<SliderWidget> {
           }).toList(),
           options: CarouselOptions(
             height: Constans.getSize(context).height * .2,
-            autoPlay: true,
+            autoPlay: autoPlay,
             enlargeCenterPage: true,
             viewportFraction: 0.8,
             onPageChanged: (index, reason) {

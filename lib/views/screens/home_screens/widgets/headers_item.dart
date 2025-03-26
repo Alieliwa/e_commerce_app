@@ -3,6 +3,7 @@ import 'package:ecomerce/core/utils/assets_manager.dart';
 import 'package:ecomerce/core/utils/color_manager.dart';
 import 'package:ecomerce/core/utils/responsive_text.dart';
 import 'package:ecomerce/core/utils/strings_manager.dart';
+import 'package:ecomerce/views/screens/aut_screens/screens/log_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:badges/badges.dart' as badges;
@@ -20,12 +21,19 @@ class HeadersItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CircleAvatar(
-           maxRadius: Constans.getSize(context).width *.08,
-            backgroundColor: ColorManager.grayColor.withOpacity(.3),
-            child: Icon(Icons.person,
-              color: ColorManager.whiteColor,
-              size:Constans.getSize(context).width * .08 ,),
+          GestureDetector(
+            onTap: (){
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context)
+              =>LogInScreen(),),);
+            },
+            child: CircleAvatar(
+             maxRadius: Constans.getSize(context).width *.08,
+              backgroundColor: ColorManager.grayColor.withOpacity(.3),
+              child: Icon(Icons.person,
+                color: ColorManager.whiteColor,
+                size:Constans.getSize(context).width * .08 ,),
+            ),
           ),
           SizedBox(
             width: Constans.getSize(context).width * .02,

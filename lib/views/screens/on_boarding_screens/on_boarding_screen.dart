@@ -1,3 +1,4 @@
+import 'package:ecomerce/core/shared/local/cache_helper.dart';
 import 'package:ecomerce/core/utils/assets_manager.dart';
 import 'package:ecomerce/core/utils/strings_manager.dart';
 import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
@@ -23,6 +24,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.initState();
   }
 
+  void onSubmit(){
+    CacheHelper.saveDate(key:'onBoarding', value: true)
+        .then((value) =>
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context)=>
+                HomeLayout(),),),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +47,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 subTitle:  StringsManager.onBoardingSubTitleOneText,
                 activeIndex: indexPage,
                 onTapPrevious: () {  },
-                onTapSkip:  () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context)=>HomeLayout()));
-                },
+                onTapSkip: onSubmit ,
                 onTapNext: () {
                   setState(() {
                     _controller!.animateToPage(
@@ -62,10 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       curve: Curves.linear
                   );
                 },
-                onTapSkip: (){
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context)=>HomeLayout()));
-                },
+                onTapSkip: onSubmit,
                 onTapNext: () {
                   setState(() {
                     _controller!.animateToPage(
@@ -80,10 +85,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 image: AssetsManager.onBoardingThreeImage,
                 title: StringsManager.onBoardingTitleThreeText,
                 activeIndex: indexPage,
-                onTapNext: (){
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context)=>HomeLayout()));
-                },
+                onTapNext: onSubmit,
                 subTitle:  StringsManager.onBoardingSubTitleThreeText,
               ),
             ],

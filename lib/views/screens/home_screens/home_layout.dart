@@ -193,8 +193,6 @@ class HomeLayout extends StatelessWidget {
           ),
         ),
       )
-
-
       // BottomNavigationBar(
       //   selectedItemColor: Colors.black,
       //   unselectedItemColor: Colors.red,
@@ -205,13 +203,11 @@ class HomeLayout extends StatelessWidget {
       //   },
       //   currentIndex: cubit.currentIndex,
       // ),
-
     );
   },
 ),
 );
   }
-
   Widget lineOnItemSelect(BuildContext context) => Container(
     height: Constans.getSize(context).height * .008,
     decoration: BoxDecoration(

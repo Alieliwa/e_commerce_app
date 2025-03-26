@@ -1,15 +1,21 @@
+import 'dart:developer';
+
+import 'package:ecomerce/core/constans.dart';
+import 'package:ecomerce/core/shared/local/cache_helper.dart';
 import 'package:ecomerce/core/shared/network/dio_helper.dart';
 import 'package:ecomerce/core/utils/color_manager.dart';
-import 'package:ecomerce/cubit/category_cubit/category_cubit.dart';
-import 'package:ecomerce/views/screens/aut_screens/screens/log_in_screen.dart';
-import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
-import 'package:ecomerce/views/screens/on_boarding_screens/on_boarding_screen.dart';
 import 'package:ecomerce/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 
-void main() {
+
+Future<void> main() async{
+  //بيتاكد ان كل حاجه في ميثود خلصت وبعدين يفتح الابلكيشن
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
   DioHelper.init();
+//token: T9m7pxshw6bMNSs5BE6EDYYEtusxL2fHCBzdalwIWlXtOmNGaZ0a9UV9wyzbBRX3c1c3IF
+  log(" bool onBoarding  $onBoarding");
+  log(" token For User  $token");
   runApp(const MyApp());
 }
 

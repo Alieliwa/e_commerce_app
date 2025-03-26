@@ -4,6 +4,8 @@ import 'package:ecomerce/core/constans.dart';
 import 'package:ecomerce/core/utils/assets_manager.dart';
 import 'package:ecomerce/core/utils/color_manager.dart';
 import 'package:ecomerce/core/utils/strings_manager.dart';
+import 'package:ecomerce/views/screens/home_screens/home_layout.dart';
+import 'package:ecomerce/views/screens/home_screens/home_screen.dart';
 import 'package:ecomerce/views/screens/on_boarding_screens/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,7 +26,11 @@ class _SplashScreenState extends State<SplashScreen> {
         (){
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
-                (context)=> OnBoardingScreen()));
+                (context)=>
+                onBoarding == null ?
+                OnBoardingScreen() :
+                HomeLayout()
+              ,),);
         }
     );
     super.initState();

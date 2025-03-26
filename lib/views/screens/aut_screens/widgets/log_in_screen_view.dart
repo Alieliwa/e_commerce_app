@@ -1,6 +1,7 @@
 import 'package:ecomerce/core/constans.dart';
 import 'package:ecomerce/core/shared/custom_button.dart';
 import 'package:ecomerce/core/shared/custom_lable_form_faild_text.dart';
+import 'package:ecomerce/core/shared/local/cache_helper.dart';
 import 'package:ecomerce/core/shared/network/dio_helper.dart';
 import 'package:ecomerce/core/utils/assets_manager.dart';
 import 'package:ecomerce/core/utils/color_manager.dart';
@@ -29,14 +30,18 @@ class LoginScreenView extends StatelessWidget {
     if(state is LogInSucsses){
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(state.massage!),
+          content: Text(state.userModel!.message!),
           duration: Duration(seconds: 10), // مدة ظهور الsnackbar
         ),
       );
-      state.status == true ?
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context)=>
-              HomeLayout())) : null;
+      state.userModel!.status == true ?
+      CacheHelper.saveDate(
+          key:'token',
+          value: state.userModel!.data!.token).then((value){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context)=>
+                HomeLayout()));
+      }): null;
     }else if(state is LogInError){
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
